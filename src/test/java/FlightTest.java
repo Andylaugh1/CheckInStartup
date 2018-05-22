@@ -32,7 +32,17 @@ public class FlightTest {
     public void canCheckInPassengerToFlight(){
         flight.checkInPassenger(passenger);
         assertEquals(1, flight.countPassengerList());
+        assertEquals(0, flight.countBagList());
     }
+
+    @Test
+    public void canCheckInPassengerWithBagToFlight(){
+        passenger.addBag(bag);
+        flight.checkInPassenger(passenger);
+        assertEquals(1, flight.countPassengerList());
+        assertEquals(1, flight.countBagList());
+    }
+
     @Test
     public void canAddNormalSizedBagToFlight(){
         double charge = flight.checkInBag(bag);

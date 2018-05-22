@@ -14,6 +14,9 @@ public class Flight {
 
     public void checkInPassenger(Passenger passenger) {
         this.passengerList.add(passenger);
+        for (Bag bag : passenger.getBags()){
+            this.checkInBag(bag);
+        }
     }
 
     public int countPassengerList() {
