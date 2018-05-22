@@ -87,4 +87,19 @@ public class FlightTest {
         assertEquals(0, flight.countPassengerList());
     }
 
+    @Test
+    public void canBoardPassenger(){
+        flight.checkInPassenger(passenger);
+        flight.boardPassenger(passenger);
+        assertEquals(0, flight.countPassengerList());
+        assertEquals(1, flight.countBoardedList());
+    }
+
+    @Test
+    public void cantBoardUncheckedPassenger(){
+        flight.boardPassenger(passenger);
+        assertEquals(0, flight.countPassengerList());
+        assertEquals(0, flight.countBoardedList());
+    }
+
 }

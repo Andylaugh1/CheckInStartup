@@ -3,12 +3,13 @@ import java.util.ArrayList;
 public class Flight {
     private ArrayList<Passenger> passengerList;
     private ArrayList<Bag> bagList;
+    private ArrayList<Passenger> boardedList;
 
     public Flight(){
         this.passengerList = new ArrayList<>();
         this.bagList = new ArrayList<>();
+        this.boardedList = new ArrayList<>();
     }
-
 
 
     public void checkInPassenger(Passenger passenger) {
@@ -48,5 +49,17 @@ public class Flight {
 
     public void removeAllBags() {
         this.bagList.clear();
+    }
+
+    public void boardPassenger(Passenger passenger) {
+        if (this.passengerList.remove(passenger)){
+            this.boardedList.add(passenger);
+        }
+
+    }
+
+    public int countBoardedList() {
+        return this.boardedList.size();
+
     }
 }
