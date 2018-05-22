@@ -19,8 +19,14 @@ public class Flight {
        return this.passengerList.size();
     }
 
-    public void checkInBag(Bag bag) {
+    public double checkInBag(Bag bag) {
         this.bagList.add(bag);
+
+        if (bag.isOversized()) {
+            return 5.00;
+        } else {
+            return 0.00;
+        }
     }
 
 
@@ -30,5 +36,17 @@ public class Flight {
 
     public void removePassenger(Passenger passenger){
         passengerList.remove(passenger);
+    }
+
+    public void removeAllPassenger() {
+        this.passengerList.clear();
+    }
+
+    public void removeBag(Bag bag) {
+        this.bagList.remove(bag);
+    }
+
+    public void removeAllBags() {
+        this.bagList.clear();
     }
 }
